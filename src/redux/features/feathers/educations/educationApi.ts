@@ -27,6 +27,15 @@ const educationApi = baseApi.injectEndpoints({
       providesTags: ["education"],
     }),
 
+    updateEducation: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/educations/${id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ['education'],
+    }),
+
     removeEducation: builder.mutation({
       query: (query) => ({
         url: `/educations/${query}`,
@@ -41,5 +50,6 @@ export const {
   useCreateEducationMutation,
   useGetAllEducationQuery,
   useGetSingleEducationQuery,
+  useUpdateEducationMutation,
   useRemoveEducationMutation,
 } = educationApi;
