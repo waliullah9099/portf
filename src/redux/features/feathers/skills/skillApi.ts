@@ -1,0 +1,43 @@
+import { baseApi } from "../../api/baseApi";
+
+const skillApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    createSkill: builder.mutation({
+      query: (data) => ({
+        url: "/skills",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["skill"],
+    }),
+
+    getAllSkill: builder.query({
+      query: () => ({
+        url: "/skills",
+        method: "GET",
+      }),
+      providesTags: ["skill"],
+    }),
+
+    getSingleSkill: builder.query({
+      query: (query) => ({
+        url: `/skills/${query}`,
+        method: "GET",
+      }),
+    }),
+    removeSkill: builder.mutation({
+      query: (query) => ({
+        url: `/skills/${query}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["skill"],
+    }),
+  }),
+});
+
+export const {
+  useCreateSkillMutation,
+  useGetAllSkillQuery,
+  useGetSingleSkillQuery,
+  useRemoveSkillMutation,
+} = skillApi;
