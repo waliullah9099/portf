@@ -1,6 +1,6 @@
 'use client'
 
-import { useCreateSkillMutation, useGetSingleSkillQuery, useUpdateSkillMutation } from "@/redux/features/feathers/skills/skillApi";
+import { useGetSingleSkillQuery, useUpdateSkillMutation } from "@/redux/features/feathers/skills/skillApi";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -17,7 +17,7 @@ const SkillsModal = ({
     onClose: () => void;
     skillId: string | null; 
   }) => {
-    const { data:skill, isLoading, error } = useGetSingleSkillQuery(skillId ?? "");
+    const { data:skill } = useGetSingleSkillQuery(skillId ?? "");
     const [updateSkill, { isSuccess }] = useUpdateSkillMutation();
 
     const {
@@ -45,7 +45,7 @@ const SkillsModal = ({
         <div className="flex justify-between">
             
         <h1 className="text-2xl font-semibold text-center mb-3">
-          Update <span className="text-primary">Projecat </span>
+          Update <span className="text-primary">Skill </span>
         </h1>
         <button onClick={onClose} className="bg-slate-800 text-secondary rounded px-5">
                 Close

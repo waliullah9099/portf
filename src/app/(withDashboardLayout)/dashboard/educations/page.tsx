@@ -1,26 +1,37 @@
 "use client";
 
 
+import EducationModal from "@/components/modals/EducationsModal";
 import { useGetAllEducationQuery, useRemoveEducationMutation } from "@/redux/features/feathers/educations/educationApi";
 import { TEducations } from "@/types";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { toast } from "sonner";
 
 const DashboardEducationPage = () => {
-  const { data } = useGetAllEducationQuery(undefined);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [editById, setEditById] = useState<string | null>(null);
+  const { data, isLoading } = useGetAllEducationQuery(undefined);
   const [removeEducation, {isSuccess}] = useRemoveEducationMutation()
- const handleEdit = (id: string) => {
-  console.log(id);
- }
+
+  if (isLoading) {
+    return <div className="pl-[43%] text-3xl font-medium text-primary mt-12">Loading...</div>;
+  }
+
+  
  const handleDelete = (id: string) => {
   removeEducation(id);
     if (isSuccess) {
       toast.success("Education is deleted");
     }
  }
+
+ const handleShowModal = () => {
+  setShowModal(!showModal);
+};
+
   return (
     <>
       <div className=" mx-auto flex flex-col shadow-2xl rounded-lg mt-5 mb-10 p-8 pt-2">
@@ -50,7 +61,9 @@ const DashboardEducationPage = () => {
               <td className="text-xl font-medium px-3 border border-slate-300">{item?.name} </td>
               <td className="text-xl font-medium px-3 border border-slate-300">{item?.session} </td>
               <td className="px-6 py-3 w-1 mx-auto text-lg border border-slate-300">
-              <BiEdit onClick={() => handleEdit(item._id)} className="size-10 p-2 rounded-full text-primary bg-gray-200 cursor-pointer" />
+                <BiEdit 
+                  onClick={() => {setEditById(item?._id); handleShowModal();}} 
+                className="size-10 p-2 rounded-full text-primary bg-gray-200 cursor-pointer" />
               </td>
               <td onClick={() => handleDelete(item._id)} className="px-6 py-3 w-1 mx-auto text-lg border border-slate-300">
               <MdDelete className="size-10 p-2 rounded-full text-red-500 bg-gray-200 cursor-pointer" />
@@ -60,6 +73,12 @@ const DashboardEducationPage = () => {
             }
           </tbody>
         </table>
+
+          {showModal && ( <EducationModal
+              onClose={() => {setShowModal(false) }} skillId={editById}/>
+          )}
+
+
       </div>
     </>
   );
