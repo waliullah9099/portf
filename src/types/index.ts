@@ -1,11 +1,11 @@
 export type TService = {
-  _id?: string;
+  _id: string;
   path: string;
   title: string;
   description: string;
 };
 export type TSkills = {
-  _id?: string;
+  _id: string;
   name: string;
   image: string;
 };
@@ -19,7 +19,7 @@ export type Inputs = {
 };
 
 export type TEducations = {
-  _id?: string;
+  _id: string;
   name: string;
   icon: string;
   title: string;
@@ -27,7 +27,7 @@ export type TEducations = {
 };
 
 export type TProject = {
-  _id?: string;
+  _id: string;
   name: string;
   project_type: string;
   image: string;

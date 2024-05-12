@@ -25,7 +25,7 @@ const Hero = () => {
           <div className="mt-[18%] md:mt-[12%] pb-24 relative">
             {" "}
             <h1 className="text-2xl font-bold mb-1">Hello I'm MD Waliullah</h1>
-            <h2 className="text-2xl md:text-4xl font-bold">
+            <h2 className="text-2xl md:text-[35px] font-bold">
               Junior <span className="text-primary">FRONT END</span> Developer
             </h2>
             <p className="md:w-[500px] text-xl text-justify font-medium  my-4">

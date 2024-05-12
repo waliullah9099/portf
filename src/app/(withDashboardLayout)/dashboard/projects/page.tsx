@@ -1,85 +1,76 @@
 "use client";
 
+
+
 import { useGetAllProjectQuery } from "@/redux/features/feathers/projects/projectApi";
 import { TProject } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 
 const DashboardProjectsPage = () => {
   const { data } = useGetAllProjectQuery(undefined);
-  console.log(data);
+  const handleEdit = (id: string) => {
+    console.log(id);
+   }
+   const handleDelete = (id: string) => {
+    console.log(id);
+   }
   return (
-    <div>
-      <h1 className="text-primary">
-        Here Is My All <span className="text-primary">Project</span>
+    <>
+      <div className=" flex flex-col shadow-2xl rounded-lg mt-5 mb-10 p-5 pt-2 mx-6">
+        <div className="flex justify-between items-center mb-2">
+      <h1 className="text-xl mb-5 font-bold" >
+        MY <span className="text-primary">PROJECTS</span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
-        {data?.map((item: TProject) => (
-          <div
-            key={item._id}
-            className="relative cursor-pointer border border-slate-700 p-4 rounded w-[580px ]"
-          >
-            <div className="relative overflow-hidden group">
+      <Link href='/dashboard/skills/add-project'>
+      <button className="btn hover:border-primary py-2 text-white">Add Project</button>
+      </Link>
+        </div>
+          
+        <table className="w-auto">
+          <thead className="bg-gray-200">
+            <tr>
+              <th className="w-0 text- px-3 py-2 border border-slate-300">Serial</th>
+              <th className="text- px-6 py-3 border border-slate-300">Name</th>
+              <th className="text- px-6 py-3 border border-slate-300">Image</th>
+              <th className=" px-6 py-3 border border-slate-300">Technologies</th>
+              <th className="text- px-6 py-3 border border-slate-300">Edit</th>
+              <th className="text- px-6 py-3 border border-slate-300">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              data?.map((item: TProject, index: number) => (
+                <tr>
+              <td className="text-center text-lg font-medium border border-slate-300">{index + 1}</td>
+              <td className="text-lg font-medium text-center border border-slate-300">{item?.name} </td>
+              <td className="text-center text-lg border border-slate-300">
               <Image
-                src={item.image}
-                height={400}
-                width={400}
-                alt="project image"
-                className="h-[300px] rounded-sm transition-transform duration-500"
+              className="w-16 rounded mx-auto"
+                src={item?.image}
+                height={50}
+                width={50}
+                alt="skill image"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-opacity duration-300 group-hover:bg-opacity-70 opacity-0 group-hover:opacity-100">
-                <div className="text-white text-center">
-                  <h1 className="font-dmserif text-3xl font-bold mb-2">
-                    {item.name}
-                  </h1>
-                  <p className="text-lg italic">{item.technologies}</p>
-                  <div className="mt-8">
-                    <a
-                      className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow"
-                      href={item.live_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live Link
-                    </a>
-                    <a
-                      className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow"
-                      href={item.client_side}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Client Sise
-                    </a>
-                    <a
-                      className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow"
-                      href={item.server_side}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Server Sise
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-between items-center mt-5">
-              <p className="text-lg italic text-secondary border border-gray-600 bg-[#031621] px-2 py-2 rounded">
-                {item.name}
-              </p>
-              <p className="text-secondary border border-gray-600 bg-[#031621] px-2 py-2 rounded">
-                {item.project_type}
-              </p>
-              <div className="flex gap-3 text-secondary border border-gray-600 bg-[#031621] px-4 py-2 rounded">
-                <BiEdit className="size-6 text-primary" />
-                <MdDelete className="size-6 text-red-500" />
-              </div>
-            </div>
-          </div>
-        ))}
+              </td>
+              <td className="text- px-2 text-center border border-slate-300">{item?.technologies} </td>
+              <td className="px-6 py-3 w-1 mx-auto text-lg border border-slate-300">
+              <BiEdit onClick={() => handleEdit(item?._id)} className="size-10 p-2 rounded-full text-primary bg-gray-200 cursor-pointer" />
+
+              </td>
+              <td className="px-6 py-3 w-1 mx-auto text-lg border border-slate-300">
+              <MdDelete onClick={() => handleDelete(item._id)} className="size-10 p-2 rounded-full text-red-500 bg-gray-200 cursor-pointer" />
+              </td>
+            </tr>
+              ))
+            }
+          </tbody>
+        </table>
       </div>
-    </div>
+    </>
   );
 };
 

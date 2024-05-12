@@ -8,9 +8,9 @@ import { MdCastForEducation } from "react-icons/md";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const items = [
     <li key="item1">
-      <Link href="/dashboard" className="flex items-center gap-1">
+      <Link href="/" className="flex items-center gap-1">
         {" "}
-        <MdDashboard /> Dashboard
+        <MdDashboard /> Home
       </Link>
     </li>,
     <li key="item1">
@@ -38,17 +38,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     </li>,
   ];
   return (
-    <div>
-      <Navbar />
-      <div className="mt-[72px] flex">
-        <aside className="flex flex-[1] bg-gray-700 h-screen p-4">
+    <>
+      <div className=" flex">
+        <aside className="flex flex-[2] bg-gray-700 h-screen p-4 pr-12 fixed">
           <ul className="flex flex-col space-y-3 text-lg font-medium text-secondary">
             {items}
           </ul>
         </aside>
-        <div className="flex flex-[5]">{children}</div>
+        <div className="flex flex-[5] pl-[175px]">{children}</div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -11,16 +11,8 @@ const Skills = async () => {
       },
     }
   );
-  const backendSkills = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/backend_skills`,
-    {
-      next: {
-        revalidate: 30,
-      },
-    }
-  );
+  
   const skillsData = await frontrSkills.json();
-  const backendSkillsData = await backendSkills.json();
   return (
     <div id="skills" className="bg-[#040E13] py-16 border-slate-600 border-b">
       <div className="max-w-7xl mx-auto px-8">
@@ -52,7 +44,7 @@ const Skills = async () => {
             play={true}
             direction="right"
           >
-            {backendSkillsData.map((skill: TSkills, index: number) => (
+            {skillsData.map((skill: TSkills, index: number) => (
               <SkillBox key={index} skill={skill} />
             ))}
           </Marquee>

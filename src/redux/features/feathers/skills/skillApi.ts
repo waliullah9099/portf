@@ -27,7 +27,7 @@ const skillApi = baseApi.injectEndpoints({
     }),
     updateSkill: builder.mutation({
       query: ({ id, body }) => ({
-        url: `/skils/${id}`,
+        url: `/skills/${id}`,
         method: "PUT",
         body,
       }),

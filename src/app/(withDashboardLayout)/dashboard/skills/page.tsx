@@ -1,21 +1,37 @@
 "use client";
 
-import { useGetAllSkillQuery } from "@/redux/features/feathers/skills/skillApi";
+import { useGetAllSkillQuery, useRemoveSkillMutation } from "@/redux/features/feathers/skills/skillApi";
 import { TSkills } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import { toast } from "sonner";
 
 const DashboardSkillPage = () => {
   const { data } = useGetAllSkillQuery(undefined);
-  console.log(data);
+  const [removeSkill, {isSuccess}] = useRemoveSkillMutation();
+  const handleEdit = async(id: string) => {
+    removeSkill(id);
+    if (isSuccess) {
+      toast.success("skill is deleted");
+    }
+   }
+   const handleDelete = (id: string) => {
+    console.log(id);
+   } 
   return (
     <>
       <div className=" md:w-4/5 mx-auto flex flex-col shadow-2xl rounded-lg mt-5 mb-10 p-8 pt-2">
-      <h1 className="text-center text-xl md:text-4xl mb-5 font-bold" >
-        Here Is My All <span className="text-primary">Skills</span>
+      <div className="flex justify-between items-center mb-2">
+      <h1 className="text-xl mb-5 font-bold" >
+        MY <span className="text-primary">SKILLS</span>
       </h1>
+      <Link href='/dashboard/skills/add-skill'>
+      <button className="btn hover:border-primary py-2 text-white">Add Skill</button>
+      </Link>
+        </div>
         <table className="w-auto">
           <thead className="bg-gray-200">
             <tr>
@@ -42,11 +58,11 @@ const DashboardSkillPage = () => {
               />
               </td>
               <td className="px-6 py-3 w-1 mx-auto text-lg border border-slate-300">
-              <BiEdit className="size-10 p-2 rounded-full text-primary bg-gray-200" />
+              <BiEdit onClick={() => handleEdit(item._id)} className="size-10 p-2 rounded-full text-primary bg-gray-200 cursor-pointer" />
 
               </td>
               <td className="px-6 py-3 w-1 mx-auto text-lg border border-slate-300">
-              <MdDelete className="size-10 p-2 rounded-full text-red-500 bg-gray-200" />
+              <MdDelete onClick={() => handleDelete(item._id)} className="size-10 p-2 rounded-full text-red-500 bg-gray-200 cursor-pointer" />
               </td>
             </tr>
               ))
