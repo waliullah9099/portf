@@ -1,19 +1,25 @@
 "use client";
 
 
-import { useGetAllEducationQuery } from "@/redux/features/feathers/educations/educationApi";
+import { useGetAllEducationQuery, useRemoveEducationMutation } from "@/redux/features/feathers/educations/educationApi";
 import { TEducations } from "@/types";
+import Link from "next/link";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import { toast } from "sonner";
 
 const DashboardEducationPage = () => {
   const { data } = useGetAllEducationQuery(undefined);
+  const [removeEducation, {isSuccess}] = useRemoveEducationMutation()
  const handleEdit = (id: string) => {
   console.log(id);
  }
  const handleDelete = (id: string) => {
-  console.log(id);
+  removeEducation(id);
+    if (isSuccess) {
+      toast.success("Education is deleted");
+    }
  }
   return (
     <>
@@ -22,7 +28,9 @@ const DashboardEducationPage = () => {
       <h1 className="text-xl mb-5 font-bold" >
         MY <span className="text-primary">Education</span>
       </h1>
+      <Link href='/dashboard/educations/add-education'>
       <button className="btn hover:border-primary py-2 text-white">Add Education</button>
+      </Link>
         </div>
         <table className="w-auto">
           <thead className="bg-gray-200">

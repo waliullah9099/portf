@@ -57,7 +57,7 @@ const AddSkill = () => {
         </div>
 
             <div className="text-end">
-        <button className="btn-outline border-secondary px-3 py-2 border-1">Create Testimonial </button>
+        <button className="btn-outline border-secondary px-3 py-2 border-1">Submit </button>
             </div>
       </form>
     </div>

@@ -2,21 +2,26 @@
 
 
 
-import { useGetAllProjectQuery } from "@/redux/features/feathers/projects/projectApi";
+import { useGetAllProjectQuery, useRemoveProjectMutation } from "@/redux/features/feathers/projects/projectApi";
 import { TProject } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import { toast } from "sonner";
 
 const DashboardProjectsPage = () => {
   const { data } = useGetAllProjectQuery(undefined);
+  const [removeProject,{isSuccess}] = useRemoveProjectMutation();
   const handleEdit = (id: string) => {
     console.log(id);
    }
    const handleDelete = (id: string) => {
-    console.log(id);
+    removeProject(id);
+    if (isSuccess) {
+      toast.success("project is deleted");
+    }
    }
   return (
     <>
@@ -25,7 +30,7 @@ const DashboardProjectsPage = () => {
       <h1 className="text-xl mb-5 font-bold" >
         MY <span className="text-primary">PROJECTS</span>
       </h1>
-      <Link href='/dashboard/skills/add-project'>
+      <Link href='/dashboard/projects/add-project'>
       <button className="btn hover:border-primary py-2 text-white">Add Project</button>
       </Link>
         </div>

@@ -13,13 +13,13 @@ const DashboardSkillPage = () => {
   const { data } = useGetAllSkillQuery(undefined);
   const [removeSkill, {isSuccess}] = useRemoveSkillMutation();
   const handleEdit = async(id: string) => {
+   
+   }
+   const handleDelete = (id: string) => {
     removeSkill(id);
     if (isSuccess) {
       toast.success("skill is deleted");
     }
-   }
-   const handleDelete = (id: string) => {
-    console.log(id);
    } 
   return (
     <>
