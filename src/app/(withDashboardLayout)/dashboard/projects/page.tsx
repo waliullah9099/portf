@@ -49,7 +49,7 @@ const DashboardProjectsPage = () => {
           <tbody>
             {
               data?.map((item: TProject, index: number) => (
-                <tr>
+                <tr key={index}>
               <td className="text-center text-lg font-medium border border-slate-300">{index + 1}</td>
               <td className="text-lg font-medium text-center border border-slate-300">{item?.name} </td>
               <td className="text-center text-lg border border-slate-300">

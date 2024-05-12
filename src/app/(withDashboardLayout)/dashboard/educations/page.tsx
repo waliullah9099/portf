@@ -45,7 +45,7 @@ const DashboardEducationPage = () => {
           <tbody>
             {
               data?.map((item: TEducations, index: number) => (
-                <tr>
+                <tr key={index}>
               <td className="text-center text-xl font-medium border border-slate-300">{index + 1}</td>
               <td className="text-xl font-medium px-3 border border-slate-300">{item?.name} </td>
               <td className="text-xl font-medium px-3 border border-slate-300">{item?.session} </td>

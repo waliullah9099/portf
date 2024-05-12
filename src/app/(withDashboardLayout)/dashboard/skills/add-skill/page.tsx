@@ -15,8 +15,8 @@ const AddSkill = () => {
 
 
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {    
-    addSkill(data);
+  const onSubmit: SubmitHandler<FieldValues> = async(data) => {    
+     await addSkill(data);
           if (isSuccess) {
             toast.success("new skill has added");
             reset();
@@ -30,7 +30,7 @@ const AddSkill = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-4xl font-semibold text-center mb-3">
-          Add <span className="text-primary">Projecat </span>
+          Add <span className="text-primary">Skill </span>
         </h1>
         <div className="grid grid-cols-1 gap-4">
    
