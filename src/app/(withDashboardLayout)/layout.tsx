@@ -1,5 +1,6 @@
 import Navbar from "@/components/shared/navbar/Navbar";
 import Link from "next/link";
+import { BiHome } from "react-icons/bi";
 import { GiSkills } from "react-icons/gi";
 import { GrProjects } from "react-icons/gr";
 import { MdDashboard, MdOutlinePostAdd } from "react-icons/md";
@@ -8,9 +9,9 @@ import { MdCastForEducation } from "react-icons/md";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const items = [
     <li key="item1">
-      <Link href="/" className="flex items-center gap-1">
+      <Link href="/dashboard" className="flex items-center gap-1">
         {" "}
-        <MdDashboard /> Home
+        <MdDashboard /> Dashboard
       </Link>
     </li>,
     <li key="item1">
@@ -19,11 +20,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <GiSkills /> Skils
       </Link>
     </li>,
-    <li key="item2">
-      <Link href="/dashboard/blogs" className="flex items-center gap-1">
-        <MdOutlinePostAdd /> Blogs
-      </Link>
-    </li>,
+    
     <li key="item3">
       <Link href="/dashboard/projects" className="flex items-center gap-1">
         <GrProjects /> Projects
@@ -36,6 +33,17 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         Educations
       </Link>
     </li>,
+    <li key="item2">
+    <Link href="/dashboard/blogs" className="flex items-center gap-1">
+      <MdOutlinePostAdd /> Blogs
+    </Link>
+  </li>,
+        <li key="item5">
+        <Link href="/" className="flex items-center gap-1">
+          {" "}
+          <BiHome /> Home
+        </Link>
+      </li>,
   ];
   return (
     <>

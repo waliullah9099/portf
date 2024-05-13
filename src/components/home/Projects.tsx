@@ -19,7 +19,7 @@ const Projects = async () => {
           MY RECENT <span className="text-primary"> PROJECTS</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
-          {projects.map((project: TProject, index: number) => (
+          {projects.slice(0,6).map((project: TProject, index: number) => (
             <div
               key={index}
               className="relative cursor-pointer border border-slate-700 p-4 rounded"

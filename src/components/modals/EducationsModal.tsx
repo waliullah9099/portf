@@ -13,13 +13,8 @@ const EducationModal = ({
     skillId: string | null; 
   }) => {
     const { data:education } = useGetSingleEducationQuery(skillId ?? "");
-    const [updateEducation, { isSuccess, isError }] = useUpdateEducationMutation();
-    if (isError) {
-        return <div className="pl-[43%] text-3xl font-medium text-primary mt-12">Loading...</div>;
-      }
-      console.log(isError);
-      
-    
+    const [updateEducation, { isSuccess }] = useUpdateEducationMutation();
+          
     const {
       register,
       handleSubmit,
@@ -98,7 +93,7 @@ const EducationModal = ({
 
         </div>
             <div className="text-end">
-        <button className="btn-outline border-secondary px-3 py-2 border-1">Submit </button>
+                <button className="btn-outline border-secondary px-3 py-2 border-1">Submit </button>
             </div>
       </form>
     </div>

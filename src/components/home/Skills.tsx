@@ -30,7 +30,7 @@ const Skills = async () => {
             play={true}
             direction="left"
           >
-            {skillsData.map((skill: TSkills, index: number) => (
+            {skillsData.slice(0,11).map((skill: TSkills, index: number) => (
               <SkillBox key={index} skill={skill} />
             ))}
           </Marquee>
