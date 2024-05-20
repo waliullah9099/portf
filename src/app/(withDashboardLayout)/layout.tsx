@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <GiSkills /> Skils
       </Link>
     </li>,
-    
+
     <li key="item3">
       <Link href="/dashboard/projects" className="flex items-center gap-1">
         <GrProjects /> Projects
@@ -34,16 +34,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       </Link>
     </li>,
     <li key="item2">
-    <Link href="/dashboard/blogs" className="flex items-center gap-1">
-      <MdOutlinePostAdd /> Blogs
-    </Link>
-  </li>,
-        <li key="item5">
-        <Link href="/" className="flex items-center gap-1">
-          {" "}
-          <BiHome /> Home
-        </Link>
-      </li>,
+      <Link href="/dashboard/blogs" className="flex items-center gap-1">
+        <MdOutlinePostAdd /> Blogs
+      </Link>
+    </li>,
+    <li key="item5">
+      <Link href="/" className="flex items-center gap-1">
+        {" "}
+        <BiHome /> Home
+      </Link>
+    </li>,
   ];
   return (
     <>
