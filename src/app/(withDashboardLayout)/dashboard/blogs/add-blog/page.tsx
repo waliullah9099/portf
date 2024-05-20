@@ -2,7 +2,6 @@
 
 import { useCreateBlogMutation } from "@/redux/features/feathers/blogs/blogApi";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import JoditEditor from "jodit-react";
 import { toast } from "sonner";
 import { useRef, useState } from "react";
 
@@ -64,7 +63,6 @@ const AddBlog = () => {
         </div>
 
         <label className="text-xl mt-2">Post Content </label>
-        <JoditEditor ref={editor} value={content} />
 
         <div className="text-end">
           <button className="btn-outline border-secondary px-3 py-2 border-1">

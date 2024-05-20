@@ -19,7 +19,7 @@ const Projects = async () => {
           MY RECENT <span className="text-primary"> PROJECTS</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
-          {projects.slice(0,6).map((project: TProject, index: number) => (
+          {projects.slice(0, 6).map((project: TProject, index: number) => (
             <div
               key={index}
               className="relative cursor-pointer border border-slate-700 p-4 rounded"
@@ -37,10 +37,12 @@ const Projects = async () => {
                     <h1 className="font-dmserif text-3xl font-bold mb-2">
                       {project.name}
                     </h1>
-                    <p className="text-lg italic">{project.technologies}</p>
+                    <p className="text-lg italic hidden md:block space-y-3">
+                      {project.technologies}
+                    </p>
                     <div className="mt-8">
                       <a
-                        className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow"
+                        className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow block mt-3 md:inline"
                         href={project.live_link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -48,20 +50,20 @@ const Projects = async () => {
                         Live Link
                       </a>
                       <a
-                        className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow"
+                        className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow block mt-3 md:inline"
                         href={project.client_side}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Client Sise
+                        Client Side
                       </a>
                       <a
-                        className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow"
+                        className="border border-gray-400 mr-3 py-2 px-3 rounded-sm shadow block mt-3 md:inline"
                         href={project.server_side}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Server Sise
+                        Server Side
                       </a>
                     </div>
                   </div>
