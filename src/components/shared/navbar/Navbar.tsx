@@ -1,13 +1,16 @@
 "use client";
 
-import { Link } from "react-scroll";
 import { useState } from "react";
+import { Link } from "react-scroll";
+import NavItems from "./NavItem";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   return (
     <nav className="w-full fixed bg-[#04293C]  top-0 left-0 right-0 z-10 shadow-inner border-slate-600 border-b">
-      <div className="justify-between px-2 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+      <div className="justify-between px-2 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 relative">
+        {/* extra div to set blur background  */}
+        <div className="bg-cyan-100 absolute top-0 left-0 w-36 h-full py-3 blur-3xl"></div>
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             {/* LOGO */}
@@ -63,96 +66,7 @@ function Navbar() {
               navbar ? "p-12  md:p-0 block" : "hidden"
             }`}
           >
-            <ul className="h-screen -space-x-3 md:h-auto items-center justify-center md:flex ">
-              <li className="menuItem">
-                <Link
-                  to="home"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="about"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  About
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="services"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Services
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="skills"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Skills
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="projects"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Projects
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="education"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Education
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="blogs"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Blogs
-                </Link>
-              </li>
-              <li className="menuItem">
-                <Link
-                  to="contact"
-                  smooth={true}
-                  offset={-80}
-                  duration={1000}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            <NavItems navbar={navbar} setNavbar={setNavbar} />
           </div>
         </div>
       </div>

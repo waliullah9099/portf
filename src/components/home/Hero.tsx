@@ -2,9 +2,9 @@
 
 /* eslint-disable react/no-unescaped-entities */
 
-import Image from "next/image";
 import bannar from "@/assets/images/waliullah.png";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Hero = () => {
   const intro = {
@@ -18,13 +18,13 @@ const Hero = () => {
   };
   return (
     <motion.div
-      className="mt-16 md:mt-[72px] border-slate-600 border-b"
-      style={{
-        backgroundImage: `url(https://i.ibb.co/LrQ9HQW/banner-optimized-50.png)`,
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        position: "relative",
-      }}
+    // className="mt-16 md:mt-[72px] border-slate-600 border-b"
+    // style={{
+    //   backgroundImage: `url(https://i.ibb.co/LrQ9HQW/banner-optimized-50.png)`,
+    //   backgroundAttachment: "fixed",
+    //   backgroundSize: "cover",
+    //   position: "relative",
+    // }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#0F172A] opacity-70"></div>
