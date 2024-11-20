@@ -6,6 +6,12 @@ import bannar from "@/assets/images/waliullah.png";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import MagicBorder from "../ui/MagicBorder";
+import Star from "../ui/Star";
+
+const generateRandomColor = () => {
+  const colors = ["#63e0e0", "#393BB2", "#E2CBFF", "#00BFFF", "#FF4500"];
+  return colors[Math.floor(Math.random() * colors.length)];
+};
 
 const Hero = () => {
   const intro = {
@@ -30,10 +36,19 @@ const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#0F172A] opacity-70"></div>
 
+      {/* Moving Stars */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 100 }).map((_, i) => (
+          <Star
+            key={i}
+            size={`${Math.random() * 4 + 2}px`}
+            color={generateRandomColor()}
+          />
+        ))}
+      </div>
+
       <div id="home" className="max-w-7xl mx-auto px-8 relative">
-        {" "}
         <motion.div className="flex justify-between text-secondary bg-opacity-40 relative">
-          {" "}
           <motion.div
             variants={intro}
             initial="hidden"
@@ -44,7 +59,6 @@ const Hero = () => {
             }}
             className="mt-[18%] md:mt-[12%] pb-24 relative"
           >
-            {" "}
             {/* <div> */}
             <motion.h1
               variants={introChildren}
