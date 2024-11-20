@@ -1,8 +1,11 @@
+// import About from "@/components/home/About";
+import Hero from "@/components/home/Hero";
+// import Services from "@/components/home/Services";
+
 const page = () => {
   return (
     <>
-      <div className="-min-h-full bg-red-400"></div>
-      {/* <Hero /> */}
+      <Hero />
       {/* <About /> */}
       {/* <Services /> */}
       {/* <Education /> */}

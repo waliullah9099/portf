@@ -15,7 +15,7 @@ function Navbar() {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             {/* LOGO */}
             <Link to="/">
-              <h2 className="text-2xl text-white tex font-semibold md:font-bold ">
+              <h2 className="text-2xl text-white tex font-semibold md:font-bold hover:cursor-pointer">
                 MD WALIULLAH
               </h2>
             </Link>

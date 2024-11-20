@@ -34,7 +34,7 @@ const NavItems: React.FC<MenuProps> = ({ setNavbar, navbar }) => {
       {menuItems.map((item, index) => (
         <motion.li
           key={item.to}
-          className="menuItem rounded-lg overflow-hidden"
+          className="menuItem rounded-lg overflow-hidden hover:cursor-pointer"
           variants={menuItemVariants}
           initial="hidden"
           animate="visible"
