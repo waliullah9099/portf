@@ -85,7 +85,7 @@ const Hero = () => {
               href="/waliullah_resume.pdf"
               download="waliullah resume.pdf"
             >
-              <MagicBorder title="Download Resume" position="right" />
+              <MagicBorder>Download Resume</MagicBorder>
             </motion.a>
             {/* </div> */}
           </motion.div>

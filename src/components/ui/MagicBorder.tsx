@@ -1,11 +1,11 @@
 const MagicBorder = ({
-  title,
+  children,
   icon,
   position,
   handleClick,
   otherClasses,
 }: {
-  title: string;
+  children: any;
   icon?: React.ReactNode;
   position?: string;
   handleClick?: () => void;
@@ -24,7 +24,7 @@ const MagicBorder = ({
                bg-slate-950 px-5 text-lg font-medium text-white backdrop-blur-3xl gap-2 ${otherClasses}`}
       >
         {position === "left" && icon}
-        {title}
+        {children}
         {position === "right" && icon}
       </span>
     </button>

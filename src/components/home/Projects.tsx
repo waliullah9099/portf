@@ -25,7 +25,7 @@ const Projects = async () => {
           {projects.slice(0, 6).map((project: TProject, index: number) => (
             <div
               key={index}
-              className="custom-card overflow-hidden bg-[#041218] group relative cursor-pointer border border-slate-700 p-4 rounded"
+              className="translate-x-6 overflow-hidden bg-[#041218] group relative cursor-pointer border border-slate-700 p-4 rounded"
             >
               <div className="relative overflow-hidden group">
                 <Image
@@ -35,12 +35,19 @@ const Projects = async () => {
                   alt="project image"
                   className="h-[300px] rounded-sm transition-transform duration-500"
                 />
+                {/* hover effects  */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-opacity duration-300 group-hover:bg-opacity-70 opacity-0 group-hover:opacity-100">
                   <div className="text-white text-center">
-                    <h1 className="font-dmserif text-3xl font-bold mb-2">
+                    <h1 className="font-dmserif text-3xl font-bold mb-1">
                       {project.name}
                     </h1>
-                    <p className="text-lg italic hidden md:block space-y-3">
+                    {/* extra div for set project title bottom via  */}
+                    <div className="flex -translate-y-[2px] justify-center">
+                      <div className="w-2/4">
+                        <div className="h-[1.5px] w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+                      </div>
+                    </div>
+                    <p className="text-lg italic hidden md:block space-y-3 mt-8">
                       {project.technologies}
                     </p>
                     <div className="mt-8">
