@@ -20,7 +20,7 @@ const ScrollBar = () => {
       } else {
         scrollProgress.style.display = "";
         let scrollValue = Math.round((pos * 100) / calcHeight);
-        let valueContent = "⇧";
+        let valueContent = "⮝";
         scrollProgress.style.background = `conic-gradient(#24a0d1  ${scrollValue}%,#2b294f ${scrollValue}%)`;
         progressValue.textContent = `${valueContent}`;
       }

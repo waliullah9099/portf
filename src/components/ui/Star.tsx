@@ -1,4 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const generateRandomPosition = () => ({
   x: Math.random() * window.innerWidth,
@@ -6,7 +8,16 @@ const generateRandomPosition = () => ({
 });
 
 const Star = ({ size, color }: { size: string; color: string }) => {
-  const randomPosition = generateRandomPosition();
+  const [randomPosition, setRandomPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const generateRandomPosition = () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * 538,
+    });
+
+    setRandomPosition(generateRandomPosition());
+  }, []);
 
   return (
     <motion.div
