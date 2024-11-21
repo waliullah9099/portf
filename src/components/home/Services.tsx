@@ -1,3 +1,5 @@
+import "../../app/customCard.css";
+
 import { TService } from "@/types";
 import Image from "next/image";
 
@@ -24,7 +26,7 @@ const Services = async () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
           {services?.map((item: TService, index: number) => (
             <div
-              className="group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl border border-slate-900"
+              className="custom-card group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-3 transition-all duration-500 delay-75 hover:shadow-xl"
               key={index}
             >
               <Image
