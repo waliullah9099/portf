@@ -1,5 +1,5 @@
-import { TService } from "@/types";
 import Image from "next/image";
+import "../../app/customCard.css";
 
 const Blogs = async () => {
   return (
@@ -12,7 +12,7 @@ const Blogs = async () => {
           MY <span className="text-primary">Blogs</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
-          <div className="group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl border border-slate-900">
+          <div className="custom-card  flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl shadow-xl">
             <Image
               className="w-[320px] h-[270px] rounded shadow-lg group-hover:scale-95 group-hover:shadow-xl transition-all duration-500 delay-75 "
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4UK1q-W5pWloP_y4ExtSBYH2oFCz8GY_ByQ&usqp=CAU"
@@ -33,7 +33,7 @@ const Blogs = async () => {
               </button>
             </span>
           </div>
-          <div className="group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl border border-slate-900">
+          <div className="custom-card group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl shadow-xl">
             <Image
               className="w-[320px] h-[270px] rounded shadow-lg group-hover:scale-95 group-hover:shadow-xl transition-all duration-500 delay-75 "
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGhM5L4Q7t1DdoHYPNha7N6S_s_VqYSrVwDw&usqp=CAU"
@@ -54,7 +54,7 @@ const Blogs = async () => {
               </button>
             </span>
           </div>
-          <div className="group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl border border-slate-900">
+          <div className="custom-card group flex items-center justify-center flex-col bg-[#334155] py-5 px-6 rounded hover:-translate-y-4 transition-all duration-500 delay-75 hover:shadow-xl shadow-xl">
             <Image
               className="w-[320px] h-[270px] rounded shadow-lg group-hover:scale-95 group-hover:shadow-xl transition-all duration-500 delay-75 "
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCJ7REob_m2QXOAy1M9250mSv4rvdcuby3Yw&usqp=CAU"

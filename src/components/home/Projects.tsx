@@ -14,15 +14,18 @@ const Projects = async () => {
 
   return (
     <div id="projects" className="bg-[#041218] py-16 border-slate-600 border-b">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-8 relative">
         <h1 className="text-center text-white font-bold text-4xl mb-3 snap-center">
           MY RECENT <span className="text-primary"> PROJECTS</span>
         </h1>
+        {/* extra div to set blur background  */}
+        <div className="bg-gradient-to-r from-sky-500 to-indigo-500 absolute top-80 left-80 md:w-40 md:h-60 py-3 blur-3xl"></div>
+        <div className="bg-gradient-to-r from-sky-500 to-indigo-500 absolute top-80 right-80 md:w-40 md:h-60 py-3 blur-3xl"></div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
           {projects.slice(0, 6).map((project: TProject, index: number) => (
             <div
               key={index}
-              className="relative cursor-pointer border border-slate-700 p-4 rounded"
+              className="custom-card overflow-hidden bg-[#041218] group relative cursor-pointer border border-slate-700 p-4 rounded"
             >
               <div className="relative overflow-hidden group">
                 <Image
